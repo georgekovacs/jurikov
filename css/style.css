@@ -106,6 +106,10 @@ main {
 /* uniform presence: portrait works share a common height, landscape fill the column */
 .stack .card img.tall { height: min(78vh, 700px); width: auto; }
 .stack .card img.wide { width: 100%; height: auto; }
+/* below this width a square-ish 700px-tall work could overflow: fit to screen instead */
+@media (max-width: 780px) {
+  .stack .card img.tall { height: auto; max-height: 78vh; max-width: 100%; }
+}
 
 /* lightbox */
 .lightbox {
