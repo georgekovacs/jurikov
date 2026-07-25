@@ -69,7 +69,7 @@ main {
 .workdesc { color: var(--dim); }
 .workcount { color: var(--dim); font-size: 14px; white-space: nowrap; }
 
-.signature { margin: 90px auto 0; max-width: 460px; text-align: center; }
+.signature { margin: 40px auto 70px; max-width: 460px; text-align: center; }
 .signature img { width: 100%; height: auto; }
 .signature figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
 
@@ -88,7 +88,7 @@ main {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.97);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,6 +119,11 @@ main {
 .lb-close { top: 14px; right: 20px; font-size: 38px; }
 .lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
 .lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+/* more-work list on gallery pages */
+.more { margin-top: 90px; }
+.more h2 { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.more .worklist { margin-top: 16px; }
 
 /* about */
 .about { max-width: 640px; }
