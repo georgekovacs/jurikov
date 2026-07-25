@@ -97,7 +97,7 @@ main {
 
 /* single large column: one work in focus at a time */
 .stack { max-width: 880px; margin: 0 auto; }
-.stack .card { margin-bottom: 84px; }
+.stack .card { margin-bottom: 130px; }
 .stack .card img {
   display: block;
   margin: 0 auto;
@@ -190,5 +190,5 @@ footer .dim { margin-top: 6px; }
   main { padding: 20px 20px 60px; }
   .grid, .grid-tiles { columns: 2; column-gap: 16px; }
   .grid .card { margin-bottom: 16px; }
-  .stack .card { margin-bottom: 48px; }
+  .stack .card { margin-bottom: 72px; }
 }
