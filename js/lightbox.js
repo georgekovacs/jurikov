@@ -3,7 +3,7 @@
   if (!lb) return;
   var img = lb.querySelector("img");
   var cap = lb.querySelector("figcaption");
-  var links = Array.prototype.slice.call(document.querySelectorAll(".grid a[data-idx]"));
+  var links = Array.prototype.slice.call(document.querySelectorAll(".grid a[data-idx], .stack a[data-idx]"));
   var idx = 0;
 
   function show(i) {

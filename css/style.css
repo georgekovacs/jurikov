@@ -80,9 +80,20 @@ main {
 
 .grid { columns: 3; column-gap: 28px; }
 .grid-tiles { columns: 4; }
-.card { break-inside: avoid; margin-bottom: 28px; }
-.card img { width: 100%; height: auto; display: block; cursor: zoom-in; }
-.card figcaption { color: var(--dim); font-size: 13px; margin-top: 8px; }
+.grid .card { break-inside: avoid; margin-bottom: 28px; }
+.grid .card img { width: 100%; height: auto; display: block; cursor: zoom-in; }
+
+/* single large column: one work in focus at a time */
+.stack { max-width: 880px; margin: 0 auto; }
+.stack .card { margin-bottom: 84px; }
+.stack .card img {
+  display: block;
+  margin: 0 auto;
+  cursor: zoom-in;
+}
+/* uniform presence: portrait works share a common height, landscape fill the column */
+.stack .card img.tall { height: min(78vh, 700px); width: auto; }
+.stack .card img.wide { width: 100%; height: auto; }
 
 /* lightbox */
 .lightbox {
@@ -155,5 +166,6 @@ footer .dim { margin-top: 6px; }
   .top nav { gap: 22px; }
   main { padding: 20px 20px 60px; }
   .grid, .grid-tiles { columns: 2; column-gap: 16px; }
-  .card { margin-bottom: 16px; }
+  .grid .card { margin-bottom: 16px; }
+  .stack .card { margin-bottom: 48px; }
 }
