@@ -1,0 +1,154 @@
+/* jurikov — art portfolio. Styled after georgekovacs.me: Manrope, black on white, minimal. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #111;
+  --dim: #888;
+  --line: #eee;
+  --max: 1180px;
+}
+
+body {
+  font-family: "Manrope", -apple-system, sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+  background: #fff;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* header */
+.top {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 34px 28px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.wordmark {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+.top nav { display: flex; gap: 40px; }
+.top nav a { font-size: 17px; }
+.top nav a:hover { opacity: 0.55; }
+
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 28px 80px;
+}
+
+/* home */
+.hero { margin: 60px 0 24px; max-width: 720px; }
+.hero h1 {
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+.sub { color: var(--dim); margin-top: 18px; font-size: 18px; }
+
+.worklist { list-style: none; margin-top: 56px; }
+.worklist li { border-top: 1px solid var(--line); }
+.worklist li:last-child { border-bottom: 1px solid var(--line); }
+.worklink {
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 4px;
+}
+.worklink:hover .workname { opacity: 0.55; }
+.workname { font-weight: 800; font-size: 20px; letter-spacing: -0.3px; }
+.workdesc { color: var(--dim); }
+.workcount { color: var(--dim); font-size: 14px; white-space: nowrap; }
+
+.signature { margin: 90px auto 0; max-width: 460px; text-align: center; }
+.signature img { width: 100%; height: auto; }
+.signature figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
+
+/* gallery */
+.gallery-head { margin: 30px 0 44px; }
+.gallery-head h1 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.8px; }
+.gallery-head .sub { font-size: 17px; margin-top: 8px; }
+
+.grid { columns: 3; column-gap: 28px; }
+.grid-tiles { columns: 4; }
+.card { break-inside: avoid; margin-bottom: 28px; }
+.card img { width: 100%; height: auto; display: block; cursor: zoom-in; }
+.card figcaption { color: var(--dim); font-size: 13px; margin-top: 8px; }
+
+/* lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.lightbox[hidden] { display: none; }
+.lightbox figure {
+  max-width: min(92vw, 1200px);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox img { max-width: 100%; max-height: 80vh; object-fit: contain; }
+.lightbox figcaption { color: var(--dim); font-size: 14px; min-height: 1em; }
+.lightbox button {
+  position: fixed;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 18px;
+  font-family: inherit;
+}
+.lightbox button:hover { opacity: 0.5; }
+.lb-close { top: 14px; right: 20px; font-size: 38px; }
+.lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+/* about */
+.about { max-width: 640px; }
+.about h1 { font-size: 34px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 24px; }
+.about h2 { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 40px 0 10px; }
+.about p { margin-bottom: 14px; }
+.portrait { border-radius: 50%; width: 120px; height: 120px; object-fit: cover; }
+
+/* footer */
+footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 28px 60px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 15px;
+}
+footer a:hover { opacity: 0.55; }
+footer .dim { margin-top: 6px; }
+
+@media (max-width: 900px) {
+  .grid { columns: 2; }
+  .grid-tiles { columns: 3; }
+  .worklink { grid-template-columns: 1fr; gap: 4px; }
+  .workcount { display: none; }
+}
+@media (max-width: 560px) {
+  .top { padding: 24px 20px; }
+  .top nav { gap: 22px; }
+  main { padding: 20px 20px 60px; }
+  .grid, .grid-tiles { columns: 2; column-gap: 16px; }
+  .card { margin-bottom: 16px; }
+}
