@@ -66,7 +66,7 @@ main {
 }
 .sub { color: var(--dim); margin-top: 18px; font-size: 18px; }
 
-.worklist { list-style: none; margin-top: 56px; }
+.worklist { list-style: none; margin-top: 0; }
 .worklist li { border-top: 1px solid var(--line); }
 .worklist li:last-child { border-bottom: 1px solid var(--line); }
 .worklink {
@@ -81,7 +81,7 @@ main {
 .workdesc { color: var(--dim); }
 .workcount { color: var(--dim); font-size: 14px; white-space: nowrap; }
 
-.signature { margin: 40px auto 70px; max-width: 460px; text-align: center; }
+.signature { margin: 24px auto 0; max-width: 380px; text-align: center; }
 .signature img { width: 100%; height: auto; }
 .signature figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
 
