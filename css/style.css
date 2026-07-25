@@ -9,6 +9,7 @@
 }
 
 body {
+  animation: pagefade 0.22s ease-out;
   font-family: "Manrope", -apple-system, sans-serif;
   font-weight: 500;
   color: var(--ink);
@@ -19,6 +20,17 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
+
+@keyframes pagefade { from { opacity: 0; } }
+body.leaving { opacity: 0; transition: opacity 0.18s ease-in; }
+
+/* scroll reveal: images fade as they enter and leave the viewport (class added by js) */
+img.reveal { opacity: 0; transition: opacity 0.45s ease; }
+img.reveal.inview { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+  body.leaving { transition: none; }
+}
 
 /* header */
 .top {
@@ -104,8 +116,15 @@ main {
   align-items: center;
   justify-content: center;
   z-index: 50;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
+.lightbox.open { opacity: 1; }
 .lightbox[hidden] { display: none; }
+.lightbox img { transition: opacity 0.15s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .lightbox, .lightbox img { transition: none; }
+}
 .lightbox figure {
   max-width: min(92vw, 1200px);
   max-height: 88vh;
