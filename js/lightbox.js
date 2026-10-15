@@ -3,9 +3,21 @@
   if (!lb) return;
   var img = lb.querySelector("img");
   var cap = lb.querySelector("figcaption");
+  var counter = lb.querySelector(".lb-counter");
   var links = Array.prototype.slice.call(document.querySelectorAll(".grid a[data-idx], .stack a[data-idx]"));
   var idx = 0;
   var hideTimer = null;
+
+  // reveal a work's title on hover, only where one exists (kept off the grid by default)
+  links.forEach(function (a) {
+    var c = a.getAttribute("data-caption");
+    if (c && a.parentNode) {
+      var fc = document.createElement("figcaption");
+      fc.className = "hovercap";
+      fc.textContent = c;
+      a.parentNode.appendChild(fc);
+    }
+  });
 
   function setImage(a) {
     img.src = a.getAttribute("href");
@@ -17,6 +29,7 @@
     idx = (i + links.length) % links.length;
     var a = links[idx];
     clearTimeout(hideTimer);
+    if (counter) counter.textContent = (idx + 1) + " / " + links.length;
     if (lb.hidden) {
       setImage(a);
       lb.hidden = false;
