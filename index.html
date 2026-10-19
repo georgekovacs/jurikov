@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20261019c">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -34,88 +34,16 @@
 <figure class="signature">
   <img src="images/home.jpg" alt="Drops — made of clay" width="733" height="550">
 </figure>
-<section class="work-grid" id="work">
-  <a class="tile" href="logos.html">
-    <div class="tile__media contain">
-      <img src="images/logos/tundervolgy_t.png" alt="Logos" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Logos</p>
-      <p class="tile__label">Marks and monograms for small businesses, wineries and workshops</p>
-    </div>
-  </a>
-  <a class="tile" href="book-covers.html">
-    <div class="tile__media">
-      <img src="images/book-covers/boertoenkoenyv-final_t.jpg" alt="Book covers" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Book covers</p>
-      <p class="tile__label">Cover designs from the art director years at Ulpius-ház Publishing</p>
-    </div>
-  </a>
-  <a class="tile" href="print.html">
-    <div class="tile__media">
-      <img src="images/print/indus-mosodio_t.jpg" alt="Print" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Print</p>
-      <p class="tile__label">Posters, packaging and editorial print work</p>
-    </div>
-  </a>
-  <a class="tile" href="design.html">
-    <div class="tile__media">
-      <img src="images/design/fa-lampa_t.jpg" alt="Design" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Design</p>
-      <p class="tile__label">Product and packaging design, ceramics and objects</p>
-    </div>
-  </a>
-  <a class="tile" href="photo-analog.html">
-    <div class="tile__media">
-      <img src="images/photo-analog/agi-green_t.jpg" alt="Analog photography" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Analog photography</p>
-      <p class="tile__label">Film photography — portraits, places and experiments</p>
-    </div>
-  </a>
-  <a class="tile" href="photo-digital.html">
-    <div class="tile__media">
-      <img src="images/photo-digital/img1075-b_t.jpg" alt="Digital photography" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Digital photography</p>
-      <p class="tile__label">Digital photography from travels and everyday life</p>
-    </div>
-  </a>
-  <a class="tile" href="art.html">
-    <div class="tile__media">
-      <img src="images/art/converse_t.jpg" alt="Art" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Art</p>
-      <p class="tile__label">Paintings, illustration and street art</p>
-    </div>
-  </a>
-  <a class="tile" href="notebooks.html">
-    <div class="tile__media">
-      <img src="images/notebooks/001-tornasz_t.jpg" alt="Notebooks" loading="lazy">
-      <span class="tile__badge" aria-hidden="true"><span class="tile__circle"><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></span></span>
-    </div>
-    <div class="tile__text">
-      <p class="tile__title">Notebooks</p>
-      <p class="tile__label">Handmade notebooks with vintage press-photo covers — the vadonat.com project</p>
-    </div>
-  </a>
-</section>
+<ul class="index" id="work">
+  <li><a href="logos.html" data-img="images/logos/tundervolgy_t.png"><span class="index__row"><span>Logos</span><span class="index__fill" aria-hidden="true">Logos</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="book-covers.html" data-img="images/book-covers/boertoenkoenyv-final_t.jpg"><span class="index__row"><span>Book covers</span><span class="index__fill" aria-hidden="true">Book covers</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="print.html" data-img="images/print/indus-mosodio_t.jpg"><span class="index__row"><span>Print</span><span class="index__fill" aria-hidden="true">Print</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="design.html" data-img="images/design/fa-lampa_t.jpg"><span class="index__row"><span>Design</span><span class="index__fill" aria-hidden="true">Design</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="photo-analog.html" data-img="images/photo-analog/agi-green_t.jpg"><span class="index__row"><span>Analog photography</span><span class="index__fill" aria-hidden="true">Analog photography</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="photo-digital.html" data-img="images/photo-digital/img1075-b_t.jpg"><span class="index__row"><span>Digital photography</span><span class="index__fill" aria-hidden="true">Digital photography</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="art.html" data-img="images/art/converse_t.jpg"><span class="index__row"><span>Art</span><span class="index__fill" aria-hidden="true">Art</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+  <li><a href="notebooks.html" data-img="images/notebooks/001-tornasz_t.jpg"><span class="index__row"><span>Notebooks</span><span class="index__fill" aria-hidden="true">Notebooks</span></span><svg class="arrow index__go" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"></path></svg></a></li>
+</ul>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
@@ -135,6 +63,7 @@
     </div>
   </div>
 </footer>
-<script src="js/fade.js"></script>
+<script src="js/fade.js?v=20261019c"></script>
+<script src="js/home.js?v=20261019c"></script>
 </body>
 </html>

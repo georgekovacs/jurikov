@@ -20,6 +20,27 @@
     document.body.classList.remove("leaving");
   });
 
+  // header: frosted once scrolled, hides on scroll down, returns on scroll up (as on georgekovacs.me)
+  var header = document.querySelector(".top");
+  if (header) {
+    var lastY = window.scrollY;
+    var setHeight = function () {
+      document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
+    };
+    var onScroll = function () {
+      var y = Math.max(0, window.scrollY);
+      var dy = y - lastY;
+      header.classList.toggle("is-scrolled", y > 8);
+      if (dy > 4 && y > header.offsetHeight) header.classList.add("is-hidden");
+      else if (dy < -4 || y <= header.offsetHeight) header.classList.remove("is-hidden");
+      lastY = y;
+    };
+    setHeight();
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", setHeight, { passive: true });
+  }
+
   // copy email to clipboard (footer button), fall back to mailto
   function legacyCopy(value) {
     var f = document.createElement("textarea");

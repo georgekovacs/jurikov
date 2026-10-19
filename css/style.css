@@ -63,14 +63,24 @@ img.reveal.inview { opacity: 1; }
 }
 
 /* header */
+/* fixed header: frosted once scrolled, hides on scroll down, returns on scroll up (js) */
+body { padding-top: var(--header-h, 95px); }
 .top {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 34px 28px;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 40;
+  padding: 34px max(28px, calc((100% - var(--max)) / 2 + 28px));
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  transition: transform 0.5s var(--ease-spring), background-color 0.3s ease;
 }
+.top.is-scrolled {
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+}
+.top.is-hidden { transform: translateY(-100%); }
 .wordmark {
   font-weight: 700;
   font-size: 22px;
@@ -124,53 +134,45 @@ main {
 .signature img { display: block; width: 100%; height: auto; }
 .signature figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
 
-/* home work tiles (georgekovacs.me style: image zoom + rotating arrow badge) */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin-top: 96px;
+/* home index: massive titles; on hover a mesh gradient of the section's artwork colours wipes into the letters */
+.index { list-style: none; margin-top: 96px; border-top: 1px solid var(--line); }
+.index li { border-bottom: 1px solid var(--line); }
+.index a {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 18px 0 20px;
+  transition: opacity 0.35s ease;
 }
-.tile { display: flex; flex-direction: column; gap: 18px; height: 460px; }
-.tile__media {
-  position: relative; flex: 1; min-height: 0;
-  border-radius: 20px; overflow: hidden; isolation: isolate;
-  background: var(--surface);
+.index__row {
+  position: relative; display: inline-block; white-space: nowrap;
+  font-size: clamp(40px, 8.4vw, 112px); font-weight: 600;
+  letter-spacing: -0.045em; line-height: 0.98;
+  transition: transform 0.6s var(--ease-spring);
 }
-.tile__media img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.7s var(--ease-spring);
+.index__fill {
+  /* extend the paint area past the tight line box so descenders (g, p, y) get the gradient too */
+  position: absolute; inset: -0.15em 0 -0.3em; padding: 0.15em 0 0.3em;
+  color: transparent;
+  background-size: 100% 100%; background-repeat: no-repeat;
+  -webkit-background-clip: text; background-clip: text;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.9s var(--ease-spring);
 }
-.tile:hover .tile__media img,
-.tile:focus-visible .tile__media img { transform: scale(1.06); }
-/* logos are marks on white: show on a white card (faint edge) rather than crop */
-.tile__media.contain { background: #fff; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07); }
-.tile__media.contain img { object-fit: contain; padding: 15%; }
-.tile:hover .tile__media.contain img { transform: scale(1.03); }
-.tile__badge { position: absolute; left: 20px; bottom: 20px; width: 56px; height: 56px; }
-.tile__circle {
-  position: absolute; left: 0; top: 50%;
-  display: grid; place-items: center;
-  width: 40px; height: 40px; border-radius: 200px;
-  background: rgba(255, 255, 255, 0.22);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  color: #fff; transform: translateY(-50%);
-  transition: width 0.45s var(--ease-spring), height 0.45s var(--ease-spring),
-              background-color 0.3s ease, color 0.3s ease;
+.index__go {
+  width: clamp(28px, 4vw, 52px); height: clamp(28px, 4vw, 52px);
+  stroke-width: 1.2; opacity: 0; transform: translateX(-16px);
+  transition: opacity 0.3s ease, transform 0.6s var(--ease-spring);
 }
-.tile:hover .tile__circle,
-.tile:focus-visible .tile__circle { width: 56px; height: 56px; background: #fff; color: var(--ink); }
-.tile:hover .arrow,
-.tile:focus-visible .arrow { transform: rotate(45deg); }
-/* on light (contain) tiles the translucent-white badge is invisible — use ink */
-.tile__media.contain .tile__circle { background: rgba(0, 0, 0, 0.06); color: var(--ink); }
-.tile:hover .tile__media.contain .tile__circle,
-.tile:focus-visible .tile__media.contain .tile__circle { background: var(--ink); color: #fff; }
-.tile__text { display: flex; flex-direction: column; gap: 3px; }
-.tile__title { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; }
-.tile:hover .tile__title { opacity: 0.6; }
-.tile__title, .tile__label { transition: opacity 0.25s ease; }
-.tile__label { color: var(--dim); font-size: 15px; }
+.index:hover a { opacity: 0.18; }
+.index a:hover, .index a:focus-visible { opacity: 1; }
+.index a:hover .index__row, .index a:focus-visible .index__row { transform: translateX(14px); }
+.index a:hover .index__fill, .index a:focus-visible .index__fill { clip-path: inset(0 0 0 0); }
+.index a:hover .index__go, .index a:focus-visible .index__go { opacity: 1; transform: translateX(0) rotate(45deg); }
+@media (hover: none) {
+  .index:hover a { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .index a, .index__row, .index__fill, .index__go { transition: none; }
+}
 
 /* gallery */
 .gallery-head { margin: 30px 0 104px; }
@@ -339,11 +341,10 @@ main {
   .worklink::after { display: none; }
   .worklink:hover .workname { transform: none; }
   .workcount { display: none; }
-  .work-grid { gap: 28px; margin-top: 64px; }
+  .index { margin-top: 64px; }
 }
 @media (max-width: 640px) {
-  .work-grid { grid-template-columns: 1fr; gap: 32px; }
-  .tile { height: 400px; }
+  .index__row { white-space: normal; }
 }
 @media (max-width: 560px) {
   .top { padding: 24px 20px; }
