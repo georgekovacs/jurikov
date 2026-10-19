@@ -72,9 +72,10 @@ img.reveal.inview { opacity: 1; }
   justify-content: space-between;
 }
 .wordmark {
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: -0.5px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
 .top nav { display: flex; gap: 40px; }
 .top nav a { font-size: 17px; font-weight: 500; }
